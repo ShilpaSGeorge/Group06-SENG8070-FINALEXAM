@@ -11,7 +11,7 @@ export class Sale {
   customer: Customer;
 
   @ManyToOne(() => Book, book => book.sales)
-  book: Book;
+  book!: Book;
 
   @Column()
   salePrice: number;

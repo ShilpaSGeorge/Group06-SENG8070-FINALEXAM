@@ -4,18 +4,17 @@ import { Book } from "./Book";
 @Entity()
 export class Author {
   @PrimaryGeneratedColumn()
-  id!: number; // Definite assignment assertion
+  id!: number;
 
   @Column()
-  name: string = ''; // Default value
+  name!: string;
 
   @Column()
-  dob: Date = new Date(); // Default value
+  dob!: Date;
 
   @Column()
-  genre: string = ''; // Default value
+  genre!: string;
 
-  @OneToMany(() => Book, book => book.author)
-  books!: Book[]; // Definite assignment assertion
+  @OneToMany(() => Book, book => book.author, { cascade: true })
+  books!: Book[];
 }
-
